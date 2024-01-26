@@ -1,4 +1,11 @@
 const express=require('express');
+const multer=require('multer');
+const firebase = require("firebase-admin"); // firebase-admin
+const serviceAccount = require("../fileuploade-8d375-firebase-adminsdk-j7g10-cd74b7d26e.json"); // file-path for admin details
+
+firebase.initializeApp({credential:firebase.credential.cert(serviceAccount),storageBucket:"gs://fileuploade-8d375.appspot.com"});
+
+
 const {UserModel}=require('../schema/user.model')
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken')
@@ -47,6 +54,52 @@ userRouter.post('/login',async(req,res)=>{
         res.status(400).send(err);
     }
 })
+
+
+
+//now apply  multer
+const storage = multer.memoryStorage();
+const upload = multer({storage:storage})
+
+userRouter.patch('/profile/:userID', upload.single('image'), async (req, res) => {
+    try {
+        const bucket = firebase.storage().bucket();
+        const file = bucket.file(`${req.params.userID}.jpg`);
+
+        const metadata = {
+            contentType: req.file.mimetype,
+        };
+
+        await file.save(req.file.buffer, { metadata });
+        const [url] = await file.getSignedUrl({
+            action: 'read',
+            expires: '01-01-2030', // Set an expiration date or period as needed
+        }); // url for the uploaded image
+        
+        await UserModel.findByIdAndUpdate({_id:`${req.params.userID}`},{image:url});
+        res.status(200).json({ message: 'File uploaded successfully',updated:url});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to upload file' });
+    }
+});
+
+//get
+userRouter.get("/profile/:userID",async(req,res)=>{
+    try {
+        let {userID} = req.params
+        let user = await UserModel.findOne({_id:userID});
+        if(user){
+            res.status(200).json({image:user.image|| "https://firebasestorage.googleapis.com/v0/b/coinsquare-8dc2e.appspot.com/o/default.jpg?alt=media&token=fa163076-3ed8-48b2-875b-3b370c66f251"})
+        } // If no profile picture then default would be sent 
+        else{
+            res.status(404).json({Error:"User Not Found"})
+        }
+    } catch (error) {
+        res.status(500).json({Error:error})
+    }
+})
+
 
 
 
