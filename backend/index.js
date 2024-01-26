@@ -2,14 +2,21 @@ const express=require('express');
 const socketIO=require('socket.io');
 const {connection}=require('./db')
 const http=require('http');
+const {userRouter}=require('./routes/user.routes');
+const {auth}=require('./middleware/auth.middleware');
+const cors=require('cors');
 
 
 const app=express();
+app.use(cors());
 app.use(express.json());
+app.use('/user',userRouter);
 const server=http.createServer(app);
 const io = socketIO(server);
 
 const port=process.env.PORT||3000;
+
+
 
 app.get('/',(req,res)=>{
   res.send("Hello world");
