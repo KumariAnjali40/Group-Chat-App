@@ -31,7 +31,8 @@ io.on("connection",(socket)=>{
   socket.on("new-user-joined",(username)=>{
     user[socket.id]=username;
     console.log(user);
-  })
+    socket.broadcast.emit('user-connected',username);
+  });
 
   socket.on("new_user",()=>{
     console.log("hii");
