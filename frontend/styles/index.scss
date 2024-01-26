@@ -17,7 +17,10 @@ $font-text:'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: $font-text
+    font-family: $font-text;
+    ::-webkit-scrollbar{
+        display: none;
+    }
 }
 
 main{
@@ -46,7 +49,7 @@ main{
             background-color: transparent;
             border: none;
             outline: none;
-            display: none;
+            // display: none;
         }
     }
 
@@ -83,9 +86,10 @@ main{
             border-radius: 10px;
             background-color:$dark-grey ;
             div.chats{
-                min-height: 65vh;
+                height: 65vh;
                 padding: 20px;
-                div.user.join{
+                overflow-y: auto;
+                div.user-join{
                     font-size: 0.9rem;
                     color:$dark-grey;
                     background-color: $white;
@@ -163,35 +167,35 @@ main{
     }
 }
 
-@media (max-width:900px){
-    main{
-        width:95%;
-        header{
-            button{
-                display: block;
-            }
-        }
-        div.container{
-            position: relative;
-            div.users.window{
-                position: absolute;
-                top:0;
-                left:0;
-                width: 100%;
-                border-radius: 0 0 10px 10px;
-                height: max-content;
-                z-index: 11;
-                box-shadow: 0 15px 20px -20px black;
-                padding-bottom: 0;
-                display: none;
-            }
-            div.chat-window{
-                div.chats{
-                    div.message{
-                        max-width: 300px;
-                    }
-                }
-            }
-        }
-    }
-}
+// @media (max-width:900px){
+//     main{
+//         width:95%;
+//         header{
+//             button{
+//                 display: block;
+//             }
+//         }
+//         div.container{
+//             position: relative;
+//             div.users.window{
+//                 position: absolute;
+//                 top:0;
+//                 left:0;
+//                 width: 100%;
+//                 border-radius: 0 0 10px 10px;
+//                 height: max-content;
+//                 z-index: 11;
+//                 box-shadow: 0 15px 20px -20px black;
+//                 padding-bottom: 0;
+//                 display: none;
+//             }
+//             div.chat-window{
+//                 div.chats{
+//                     div.message{
+//                         max-width: 300px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
