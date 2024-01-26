@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
-    <img
-      id="loginImage1"
-      src=""
-      alt="image"
-    />
+    <a href="https://github.com/login/oauth/authorize?client_id=1c5423b8349237604119"><button onclick="github()">Continue with github</button></a>  
     <div class="container">
       <input type="checkbox" id="check" />
       <div class="login form">
@@ -131,4 +127,36 @@
       })
       .catch((err) => console.log(err));
   };
+
+
+
+
+
+
+  //github ka kam
+  
+const github = async() => {
+    await fetch("http://localhost:3000/auth/github", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+      // body: JSON.stringify({
+      //   name: document.getElementById("username").value,
+      //   pass: document.getElementById("pass").value,
+      //   email: document.getElementById("email").value,
+      // }),
+    }) // fetch yhn khtm
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // let reg = document.getElementById("reg");
+        // reg.textContent = "successful register";
+      })
+      .catch((err) => console.log(err));
+  };
+
+
+
+
 </script>
