@@ -24,8 +24,14 @@ app.get('/',(req,res)=>{
 
 
 //connection start
+let user={};
+
 io.on("connection",(socket)=>{
   console.log(socket.id);
+  socket.on("new-user-joined",(username)=>{
+    user[socket.id]=username;
+    console.log(user);
+  })
 
   socket.on("new_user",()=>{
     console.log("hii");
