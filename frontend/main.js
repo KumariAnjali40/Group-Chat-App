@@ -26,7 +26,6 @@ function userJoinLeft(name, status) {
     let content = `<p style="font-size: 0.9rem; color: $dark-grey;"> <b>${name}</b>${status} the chat</p>`;
     div.innerHTML = content;
 
-    // Applying inline styles to the div
     div.style.backgroundColor = "white";
     div.style.borderRadius = "50px";
     div.style.width = "max-content";
@@ -94,6 +93,10 @@ function appnedMessage(data,status){
 
 }
 
-socket.on('message',(data)=>{
-    appnedMessage(data,'incoming');
-})
+// socket.on('message',(data)=>{
+//     appnedMessage(data,'incoming');
+// })
+socket.on('message', (data) => {
+    appnedMessage(data, 'incoming');
+    chats.scrollTop = chats.scrollHeight;
+});
