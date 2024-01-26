@@ -108,6 +108,7 @@
           let logged = document.getElementById("logged");
           logged.textContent = "Log in Successful";
           localStorage.setItem("token", data.access_token);
+          
           localStorage.setItem("id", data.user._id);
 
           if (data.user.email) {

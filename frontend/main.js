@@ -5,7 +5,7 @@ let chats=document.querySelector(".chats");
 let users_list=document.querySelector('.users-list');
 let users_count=document.querySelector('.users-count');
 let msg_send=document.querySelector("#user-send");
-let user_msg=document.querySelector('#user-msg')
+let user_msg=document.querySelector('#user-msg');
 
 let username=localStorage.getItem('name');
 
@@ -81,7 +81,7 @@ function appnedMessage(data,status){
 //    `
 
   let content = `
-  <img class="img" src="${data.imageSrc}" alt="image">
+  <img class="img" src="${data.image}" alt="image">
    <div>
     <h5>${data.user}</h5>
     <p>${data.msg}</p>
