@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="title">
+          <img src="icons/OIP (7).jpeg" width="35px" />
+          <h1>Anjali Chat</h1>
+        </div>
+        <button type="button" onclick="show_hide()">
+          <img src="icons/OIP (7).jpeg" width="50px" />
+        </button>
+      </header>
+      <div class="container">
+        <div class="users-window">
+          <div class="users-head">
+            <h3>People</h3>
+            <h4>3</h4>
+          </div>
+          <div class="users-list">
+            <p>Jarvis</p>
+            <p>Jarvis</p>
+            <p>Jarvis</p>
+          </div>
+        </div>
+        <div class="chat-window">
+          <div class="chats">
+            <div class="user join">
+              <p><b>Jarvis</b>Joined the chat</p>
+            </div>
+            <div class="message incoming">
+                <img class="img" src="icons/OIP (7).jpeg" alt="image">
+                <div>
+                    <h5>Jarvis</h5>
+                    <p>Hello Ultron</p>
+                </div>
+             
+            </div>
+            <div class="message outgoing">
+              <div>
+                <h5>Veronica</h5>
+                <p>Welcome Jarvis</p>
+              </div>
+
+              <img class="img" src="icons/OIP (7).jpeg" alt="image">
+            </div>
+          </div>
+          <div class="user-input">
+            <input type="text" placeholder="Type your message..." />
+            <button>SEND</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <!-- <script>
+      var uwindow = document.querySelector(".users-window");
+      function show_hide() {
+        if (window.style.display == "block") {
+          uwindow.style.display = "none";
+        } else {
+          uwindow.style.display = "block";
+        }
+      }
+    </script> -->
+  </body>
+</html>
