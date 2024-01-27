@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+* ::-webkit-scrollbar {
+  display: none;
+}
 
 main {
   position: absolute;
@@ -15,7 +18,7 @@ main {
   border-radius: 10px;
 }
 main header {
-  background-color: #2791cf;
+  background-color: rgb(203, 66, 203);
   color: #ffffff;
   padding: 7px 20px;
   display: flex;
@@ -38,7 +41,6 @@ main header button {
   background-color: transparent;
   border: none;
   outline: none;
-  display: none;
 }
 main div.container {
   background-color: #7E878c;
@@ -80,10 +82,12 @@ main div.container div.chat-window {
   background-color: #3f3f3f;
 }
 main div.container div.chat-window div.chats {
-  min-height: 65vh;
+  height: 65vh;
   padding: 20px;
+  overflow-y: auto;
+  border: red;
 }
-main div.container div.chat-window div.chats div.user.join {
+main div.container div.chat-window div.chats div.user-join {
   font-size: 0.9rem;
   color: #3f3f3f;
   background-color: #ffffff;
@@ -108,7 +112,7 @@ main div.container div.chat-window div.chats div.message p {
 main div.container div.chat-window div.chats div.outgoing {
   margin-left: auto;
   color: #ffffff;
-  background-color: #2791cf;
+  background-color: rgb(203, 66, 203);
   border-radius: 50px 10px 10px 50px;
   text-align: right;
   display: flex;
@@ -153,34 +157,6 @@ main div.container div.chat-window div.user-input button {
   outline: none;
   letter-spacing: 0.5px;
   color: #ffffff;
-  background-color: #2791cf;
+  background-color: rgb(203, 66, 203);
   border-radius: 0 50px 50px 0;
-}
-
-@media (max-width: 900px) {
-  main {
-    width: 95%;
-  }
-  main header button {
-    display: block;
-  }
-  main div.container {
-    position: relative;
-  }
-  main div.container div.users.window {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 0 0 10px 10px;
-    height: -moz-max-content;
-    height: max-content;
-    z-index: 11;
-    box-shadow: 0 15px 20px -20px black;
-    padding-bottom: 0;
-    display: none;
-  }
-  main div.container div.chat-window div.chats div.message {
-    max-width: 300px;
-  }
 }/*# sourceMappingURL=index.css.map */

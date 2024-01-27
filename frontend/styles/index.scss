@@ -1,5 +1,5 @@
 // font-family: 'Poppins', sans-serif;
-$light-blue:#2791cf;
+$light-blue:rgb(203, 66, 203);
 $light-grey:#7E878c;
 $dark-grey:#3f3f3f;
 $white:#ffffff;
@@ -89,6 +89,7 @@ main{
                 height: 65vh;
                 padding: 20px;
                 overflow-y: auto;
+                border: red;
                 div.user-join{
                     font-size: 0.9rem;
                     color:$dark-grey;
@@ -167,6 +168,13 @@ main{
     }
 }
 
+// main div.container div.chat-window div.chats {
+//     min-height: 65vh;
+//     padding: 20px;
+//     border: solid red;
+//     overflow: auto;
+//     height: 250px;
+// }
 // @media (max-width:900px){
 //     main{
 //         width:95%;

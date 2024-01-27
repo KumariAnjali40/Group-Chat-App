@@ -135,27 +135,31 @@
 
   //github ka kam
   
-const github = async() => {
-    await fetch("http://localhost:3000/auth/github", {
+  const github = async () => {
+    try {
+    const response = await fetch("http://localhost:3000/auth/github", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
       },
-      // body: JSON.stringify({
-      //   name: document.getElementById("username").value,
-      //   pass: document.getElementById("pass").value,
-      //   email: document.getElementById("email").value,
-      // }),
-    }) // fetch yhn khtm
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        // let reg = document.getElementById("reg");
-        // reg.textContent = "successful register";
-      })
-      .catch((err) => console.log(err));
-  };
+    });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if(data){
+      console.log(data);
+      // localStorage.setItem
+    // window.location.href="chat.html"
+    }
+  } catch (error) {
+    console.error("Fetch error:", error.message);
+    // Handle the error, e.g., display an error message to the user
+  }
+    
+};
 
 
 

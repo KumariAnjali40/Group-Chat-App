@@ -74,8 +74,8 @@ app.get('/auth/github',async(req,res)=>{
   // res.json({ token });
   console.log(token);
   // res.send(token);
-  
- 
+  // res.json({user});
+
 });
 
 
