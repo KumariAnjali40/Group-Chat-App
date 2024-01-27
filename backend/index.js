@@ -38,14 +38,14 @@ app.get('/auth/github',async(req,res)=>{
       },
       body:JSON.stringify({
           client_id:"1c5423b8349237604119",
-          client_secret:"6ac4a4f083d43e9bee62a3dfcfd8416d14dc5143",
+          client_secret:"004ad3f643d25a62d3936505d6924b0006223849",
           code:code
       })
   })
   .then((res)=>res.json())
   console.log(token_response);
   const access_token=token_response.access_token
-  res.send("code is:"+code);
+  // res.send("code is:"+code);
 
   const githubUserResponse =await fetch("https://api.github.com/user",{
       headers:{
@@ -74,7 +74,7 @@ app.get('/auth/github',async(req,res)=>{
   // res.json({ token });
   console.log(token);
   // res.send(token);
-  // res.json({user});
+  res.json({user});
 
 });
 
