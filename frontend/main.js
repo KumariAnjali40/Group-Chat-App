@@ -73,19 +73,16 @@ msg_send.addEventListener("click",()=>{
 function appnedMessage(data,status){
    let div=document.createElement('div')  ;
    div.classList.add('message',status);
-//    let content=`
-//    <h5>${data.user}</h5>
-//    <p>${data.msg}</p>
-   
-//    `
+   const timestamp = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-  let content = `
-  <img class="img" src="${data.image}" alt="image">
-   <div>
-    <h5>${data.user}</h5>
-    <p>${data.msg}</p>
-   </div>
-`;
+    let content = `
+      <img class="img" src="${data.image}" alt="image">
+      <div>
+        <h5>${data.user}</h5>
+        <p>${data.msg}</p>
+        <div class="message-timestamp">${timestamp}</div>
+      </div>
+    `;
    div.innerHTML=content;
    chats.appendChild(div);
 
