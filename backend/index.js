@@ -91,6 +91,7 @@ io.on("connection",(socket)=>{
   console.log(socket.id);
   socket.on("new-user-joined",(username)=>{
     users[socket.id]=username;
+    // users[socket.avtar]='default-avatar.jpg';
     console.log(users);
     socket.broadcast.emit('user-connected',username);
     io.emit("user-list",users);
