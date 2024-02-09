@@ -161,6 +161,33 @@ main div.container div.chat-window div.user-input button {
   border-radius: 0 50px 50px 0;
 }
 
+@media (max-width: 900px) {
+  main {
+    width: 95%;
+  }
+  main header button {
+    display: block;
+  }
+  main div.container {
+    position: relative;
+  }
+  main div.container div.users.window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    height: -moz-max-content;
+    height: max-content;
+    z-index: 11;
+    box-shadow: 0 15px 20px -20px black;
+    padding-bottom: 0;
+    display: none;
+  }
+  main div.container div.chat-window div.chats div.message {
+    max-width: 300px;
+  }
+}
 #logout-btn {
   /* Set background color */
   background-color: #3f3f3f;

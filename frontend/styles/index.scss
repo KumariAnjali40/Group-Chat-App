@@ -175,38 +175,38 @@ main{
 //     overflow: auto;
 //     height: 250px;
 // }
-// @media (max-width:900px){
-//     main{
-//         width:95%;
-//         header{
-//             button{
-//                 display: block;
-//             }
-//         }
-//         div.container{
-//             position: relative;
-//             div.users.window{
-//                 position: absolute;
-//                 top:0;
-//                 left:0;
-//                 width: 100%;
-//                 border-radius: 0 0 10px 10px;
-//                 height: max-content;
-//                 z-index: 11;
-//                 box-shadow: 0 15px 20px -20px black;
-//                 padding-bottom: 0;
-//                 display: none;
-//             }
-//             div.chat-window{
-//                 div.chats{
-//                     div.message{
-//                         max-width: 300px;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+@media (max-width:900px){
+    main{
+        width:95%;
+        header{
+            button{
+                display: block;
+            }
+        }
+        div.container{
+            position: relative;
+            div.users.window{
+                position: absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                border-radius: 0 0 10px 10px;
+                height: max-content;
+                z-index: 11;
+                box-shadow: 0 15px 20px -20px black;
+                padding-bottom: 0;
+                display: none;
+            }
+            div.chat-window{
+                div.chats{
+                    div.message{
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
 
 #logout-btn {
     /* Set background color */
