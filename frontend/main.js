@@ -96,3 +96,42 @@ socket.on('message', (data) => {
     appnedMessage(data, 'incoming');
     chats.scrollTop = chats.scrollHeight;
 });
+
+
+
+
+const logout = async () => {
+  try {
+    // Display loading state or spinner here if needed
+
+    const response = await fetch('https://chatapp-lbmi.onrender.com/user/logout', {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+
+    // Clear loading state or spinner here
+
+    if (response.ok) {
+      // Handle successful logout
+      console.log("Logout successful");
+      window.location.href = 'index.html';
+    } else {
+      // Handle error response
+      const data = await response.json();
+      console.error("Logout failed:", data.err);
+
+      // Display a user-friendly error message on the UI
+      // Example: alert("Logout failed. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error during logout:", error);
+
+    // Display a user-friendly error message on the UI
+    // Example: alert("An unexpected error occurred. Please try again.");
+  }
+};
+
+// Example button click event
+document.getElementById("logout-btn").addEventListener("click", logout);

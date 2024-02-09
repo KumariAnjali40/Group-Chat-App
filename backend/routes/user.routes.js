@@ -1,5 +1,6 @@
 const express=require('express');
 const multer=require('multer');
+const {BlackListModel}=require('../schema/blacklist.models')
 const firebase = require("firebase-admin"); // firebase-admin
 const serviceAccount = require("../fileuploade-8d375-firebase-adminsdk-j7g10-cd74b7d26e.json"); // file-path for admin details
 
@@ -100,7 +101,18 @@ userRouter.get("/profile/:userID",async(req,res)=>{
     }
 })
 
-
+//logout
+userRouter.get('/logout',async(req,res)=>{
+    const access_token=req.headers.authorization?.split(" ")[1];
+    try{
+        const blacklist=new BlackListModel({access_token:access_token});
+        await blacklist.save();
+        res.status(200).json({msg:"Hey! user you are logout"});
+    }
+    catch(err){
+        res.status(400).json({err:err});
+    }
+})
 
 
 
