@@ -14,12 +14,13 @@ const jwt=require('jsonwebtoken')
 
 const userRouter=express.Router();
 
-userRouter.post('/register',async(req,res)=>{
-    const {name,email,pass}=req.body
-    try{
+userRouter.post('/register', async (req, res) => {
+    try {
+        const { name, email, pass } = req.body;
+
         if (!(name && email && pass)) {
             return res.status(400).json({ msg: "Empty input field" });
-        } 
+        }
 
         const user = await UserModel.findOne({ email });
 
@@ -27,21 +28,20 @@ userRouter.post('/register',async(req,res)=>{
             return res.status(400).json({ msg: "Email already exists" });
         }
 
-        bcrypt.hash(pass,3,async(err,hash)=>{
-            if(err){
-                res.status(200).json({err});
-            }else{
-               const user=new UserModel({name,email,pass:hash})
-               await user.save();
-               res.status(200).json({msg:"new user has been register",user})
+        bcrypt.hash(password, 3, async (err, hash) => {
+            if (err) {
+                return res.status(500).json({ msg: "Error hashing password" });
             }
-        })
-    }
-    catch(err){
-       res.status(400).json({err});
-    }
-})
 
+            const newUser = new UserModel({ name, email, pass: hash });
+            await newUser.save();
+
+            res.status(200).json({ msg: "New user has been registered", user: newUser });
+        });
+    } catch (error) {
+        res.status(500).json({ msg: "Internal server error", error });
+    }
+});
 
 userRouter.post('/login',async(req,res)=>{
     const {email,pass}=req.body;
