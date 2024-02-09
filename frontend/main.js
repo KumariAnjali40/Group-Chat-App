@@ -1,4 +1,4 @@
-const socket=io("http://localhost:3000/",{transports:["websocket"]})
+const socket=io("https://anjalichatapp.netlify.app/",{transports:["websocket"]})
 
 
 let chats=document.querySelector(".chats");
