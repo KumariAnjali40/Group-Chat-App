@@ -6,26 +6,26 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   /* background: #009579; */
   /* background-image: url('./images/WhatsApp Image 2024-01-19 at 01.01.40.jpeg'); */
   background:hsl(220, 5%, 20%);
 }
-#loginImage1{
+/* #loginImage1{
   
   height: 80vh;
   width: 35%;
   margin-left: 10%;
   margin-top: 5%;
   border-radius: 8%;
-  /* position: relative; */
-}
+
+} */
 
 .container {
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 50%;
   transform: translate(-50%, -50%);
   max-width: 430px;
   width: 100%;
