@@ -103,6 +103,7 @@
         if (data.access_token){
           let logged = document.getElementById("logged");
           logged.textContent = "Log in Successful";
+  
           localStorage.setItem("token", data.access_token);
           
           localStorage.setItem("id", data.user._id);
@@ -117,13 +118,15 @@
           } else {
             console.error("Name not found in the user object:", data.user);
           }
+           
+          setTimeout(() => {
+            window.location.href = "chat.html";
+          }, 0);
         } else {
           console.log("user is not reg");
           alert("wrong Credential");
         }
-        setTimeout(() => {
-            window.location.href = "chat.html";
-          }, 0);
+       
       })
       .catch((err) => console.log(err));
   };
