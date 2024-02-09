@@ -14,9 +14,19 @@ const jwt=require('jsonwebtoken')
 
 const userRouter=express.Router();
 
-userRouter.post('/register',(req,res)=>{
+userRouter.post('/register',async(req,res)=>{
     const {name,email,pass}=req.body
     try{
+        if (!(name && email && pass)) {
+            return res.status(400).json({ msg: "Empty input field" });
+        } 
+
+        const user = await UserModel.findOne({ email });
+
+        if (user) {
+            return res.status(400).json({ msg: "Email already exists" });
+        }
+
         bcrypt.hash(pass,3,async(err,hash)=>{
             if(err){
                 res.status(200).json({err});
