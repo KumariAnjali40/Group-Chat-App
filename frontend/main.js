@@ -1,4 +1,4 @@
-const socket=io("https://anjalichatapp.netlify.app/",{transports:["websocket"]})
+const socket=io("https://chatapp-lbmi.onrender.com",{transports:["websocket"]})
 
 
 let chats=document.querySelector(".chats");
