@@ -14,7 +14,7 @@
 <img src="frontend/icons/groupChat.png" alt="Login Screenshot" style="width:800px;">
 
 
-**UI of Chat App**
+**LogOut (Left the chat)**
 
-<img src="frontend/icons/loginScreenShot.png" alt="Login Screenshot" style="width:800px;">
+<img src="frontend/icons/leaveChat.png" alt="Login Screenshot" style="width:800px;">
 
