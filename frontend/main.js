@@ -76,11 +76,10 @@ function appnedMessage(data,status){
    const timestamp = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
     let content = `
-      <img class="img" src="${data.image}" alt="image">
       <div>
         <h5>${data.user}</h5>
         <p>${data.msg}</p>
-        <div class="message-timestamp">${timestamp}</div>
+         <div class="message-timestamp">${timestamp}</div>
       </div>
     `;
    div.innerHTML=content;

@@ -1,5 +1,5 @@
 // font-family: 'Poppins', sans-serif;
-$light-blue:rgb(203, 66, 203);
+$light-blue:rgb(204, 75, 204);
 $light-grey:#7E878c;
 $dark-grey:#3f3f3f;
 $white:#ffffff;
@@ -207,3 +207,26 @@ main{
 //         }
 //     }
 // }
+
+#logout-btn {
+    /* Set background color */
+    background-color:#3f3f3f ;
+    
+    /* Set text color */
+    color:white;
+    
+    /* Add some padding and border for better appearance */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    
+    /* Add hover effect */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logout-btn:hover {
+    /* Change background color on hover */
+    background-color: #3498db;
+  }
+  
