@@ -84,10 +84,8 @@ function appnedMessage(data,status){
     let content = `
         <div>
         <h5>${data.user}</h5>
-        <p>${data.msg}</p>
+        <p>${data.msg}</p>  </div>
          <div class="message-timestamp">${timestamp}</div>
-
-        </div>
      
     `;
    div.innerHTML=content;

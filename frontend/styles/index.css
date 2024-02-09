@@ -84,6 +84,8 @@ main div.container div.chat-window {
 main div.container div.chat-window div.chats {
   height: 65vh;
   padding: 20px;
+  overflow-y: auto;
+  border: red;
 }
 main div.container div.chat-window div.chats div.user-join {
   font-size: 0.9rem;
@@ -113,6 +115,9 @@ main div.container div.chat-window div.chats div.outgoing {
   background-color: rgb(204, 75, 204);
   border-radius: 50px 10px 10px 50px;
   text-align: right;
+  display: flex;
+  justify-content: end;
+  gap: 10%;
 }
 main div.container div.chat-window div.chats div.outgoing img {
   width: 40px;
@@ -143,6 +148,7 @@ main div.container div.chat-window div.user-input input {
   border: none;
   width: 100%;
   border-radius: 50px 0 0 50px;
+  padding-left: 8px;
 }
 main div.container div.chat-window div.user-input button {
   font-size: 16px;
