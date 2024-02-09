@@ -1,7 +1,7 @@
 const jwt=require('jsonwebtoken');
 const {BlackListModel}=require('../schema/blacklist.models');
 
-
+//blacklist
 const auth=async(req,res,next)=>{
    const token=req.headers.authorization?.split(" ")[1];
 

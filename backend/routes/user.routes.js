@@ -102,6 +102,7 @@ userRouter.get("/profile/:userID",async(req,res)=>{
 })
 
 //logout
+//fucntionality
 userRouter.get('/logout',async(req,res)=>{
     const access_token=req.headers.authorization?.split(" ")[1];
     try{
