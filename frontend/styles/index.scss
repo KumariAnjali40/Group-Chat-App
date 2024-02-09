@@ -88,8 +88,8 @@ main{
             div.chats{
                 height: 65vh;
                 padding: 20px;
-                overflow-y: auto;
-                border: red;
+                // overflow-y: auto;
+                // border: red;
                 div.user-join{
                     font-size: 0.9rem;
                     color:$dark-grey;
@@ -117,9 +117,9 @@ main{
                     background-color: $light-blue;
                     border-radius: 50px 10px 10px 50px;
                     text-align: right;
-                    display: flex;
-                    justify-content: end;
-                    gap : 10%;
+                    // display: flex;
+                    // justify-content: end;
+                    // gap : 10%;
                     
                     img{
                         width:40px;

@@ -37,6 +37,12 @@ function userJoinLeft(name, status) {
     chats.scrollTop = chats.scrollHeight;
 }
 
+document.getElementById("user-msg").addEventListener("keydown", function(event) {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault(); // Prevents a newline character from being inserted
+    document.getElementById("user-send").click(); // Trigger the click event on the send button
+  }
+});
 
 
 //called when user left
